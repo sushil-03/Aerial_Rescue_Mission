@@ -3,4 +3,5 @@ numpy
 supervision
 ultralytics
 opencv-python-headless
+pylint
 Gunicorn
