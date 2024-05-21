@@ -1,0 +1,65 @@
+.result_container{
+    position:relative;
+    padding:0px 40px;
+    font-family: "Lato", sans-serif;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.heading_container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center
+
+}
+.heading{
+    font-family: "PT Sans", sans-serif;
+    font-weight:400;
+    font-size:2em;
+ }
+ .home_link{
+    font-size:1.2em;
+    background-color:#112D4E;
+    padding:5px 10px;
+    color:white;
+       border-radius:10px;
+
+ }
+ .result_image{
+   object-fit: contain;
+   height:600px;
+   width:800px;
+ }
+ .result__image_container{
+    flex:1;
+ }
+ .main__result{
+    display:flex;
+    gap:50px;
+    justify-content:space-between;
+ }
+ .result_content{
+    width:full;
+    display:flex;
+    gap:20px;
+    flex-direction:column;
+    flex:1;
+ }
+ #file__name{
+
+ }
+ .stats_heading{
+      margin-top:20px;
+      font-weight:600;
+ }
+ .stat{
+      text-transform: capitalize;
+      margin-top:10px;
+ }
+ [aria-current="page"] {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: white;
+}

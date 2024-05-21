@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/live.css')}}">
+
+</head >
+<body>
+    <div class="">
+<!--        <video id="video_feed" width="640" height="480" autoplay></video>-->
+    <canvas id="canvas" width="640" height="480"></canvas>
+        <button id="cl" onclick="handle()">Click</button>
+
+
+  </div>
+    <script>
+        const handle=()=>{
+          fetch('/detect_objects', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+        }
+    </script>
+
+
+<!-- <script>-->
+<!--     const video = document.getElementById('video_feed');-->
+<!--     const canvas = document.getElementById('canvas');-->
+<!--     const ctx = canvas.getContext('2d');-->
+
+<!--     navigator.mediaDevices.getUserMedia({ video: true })-->
+<!--         .then(function (stream) {-->
+<!--             video.srcObject = stream;-->
+<!--             video.play();-->
+<!--         })-->
+<!--         .catch(function (err) {-->
+<!--              console.log("An error occurred: " + err);-->
+<!--         });-->
+
+<!--        video.addEventListener('play', function () {-->
+<!--            const videoWidth = video.videoWidth;-->
+<!--            const videoHeight = video.videoHeight;-->
+<!--            canvas.width = videoWidth;-->
+<!--            canvas.height = videoHeight;-->
+
+<!--            function detect() {-->
+<!--                ctx.drawImage(video, 0, 0, videoWidth, videoHeight);-->
+<!--                const imageData = canvas.toDataURL('image/jpeg');-->
+<!--                console.log("imageada",imageData);-->
+
+<!--&lt;!&ndash;                sendImageData(imageData);&ndash;&gt;-->
+<!--                requestAnimationFrame(detect);-->
+<!--            }-->
+
+<!--            detect();-->
+<!--        });-->
+<!--      function sendImageData(imageData) {-->
+<!--        console.log('data',imageData);-->
+<!--            fetch('/detect_objects', {-->
+<!--                method: 'POST',-->
+<!--                headers: {-->
+<!--                    'Content-Type': 'application/json'-->
+<!--                },-->
+<!--                body: JSON.stringify({ image_data: imageData })-->
+<!--            })-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => {-->
+<!--                // Process the response from the server (if any)-->
+<!--                console.log('myyyyyyyyyyyyyyyyyyyyyyyyy',data);-->
+<!--            })-->
+<!--            .catch(error => {-->
+<!--                console.error('Error:', error);-->
+<!--            });-->
+<!--        }-->
+<!--    </script>-->
+</body>
+</html>

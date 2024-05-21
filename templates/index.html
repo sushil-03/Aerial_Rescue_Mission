@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air Watch</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <script type="text/javascript" src="{{ url_for('static', filename='script/main.js')}}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="overlay"></div>
+    <div id="loading__container">
+      <div class="loader" id="loading-animation"> </div>
+    </div>
+    <div class="content">
+      {% include 'navbar.html' %}
+      <div class="main__container">
+        <div class="left_side">
+          <form class="form-signin" method="post" enctype=multipart/form-data name="form"
+            onsubmit="return submitForm()">
+            <span class="heading">High above, we search to save lives below.
+              <br>Join us in our mission of hope</span>
+            <div class="media_input_box">
+              <input type="file" name="file" class="form-control-file  " id="inputfile" onchange="previewMedia(event)">
+              <div class="upload_box">
+                <i class="fa fa-upload fa-2x " aria-hidden="true"></i>
+              </div>
+              <img id="preview-image" src="#" alt="Preview Image" style="display: none;">
+              <video id="preview-video" class="preview-media" controls muted autoplay loop
+                style="display:none;"></video>
+
+            </div>
+            <p class="small_text upload-text ">Upload image or video</p>
+            <br />
+            <button class="btn submitbtn" type="submit">Upload</button>
+          </form>
+        </div>
+
+        <div class="right__container">
+          <div class="slider">
+
+            <div class="slides">
+              <!--Radio Buttons-->
+              <input type="radio" name="radio-btn" id="radio1">
+              <input type="radio" name="radio-btn" id="radio2">
+              <input type="radio" name="radio-btn" id="radio3">
+              <input type="radio" name="radio-btn" id="radio4">
+              <!--Fim Radio Buttons-->
+
+              <div class="slide first">
+                <img src="../static/public/image2.jpg" alt="Image 1" class="carousel_image">
+              </div>
+              <div class="slide">
+
+                <video alt="video" autoplay controls width="320" height="240">
+                  <source src="../static/public/test.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="slide">
+                <img src="../static/public/image3.jpg" alt="Image 1" class="carousel_image">
+              </div>
+              <div class="slide">
+                <img src="../static/public/image4.jpg" alt="Image 1" class="carousel_image">
+              </div>
+              <div class="side">
+                <video alt="video" autoplay controls width="320" height="240">
+                  <source src="../static/public/test.mp4" type="video/mp4">
+                </video>
+              </div>
+              <!--Fim Slides em imagens-->
+
+              <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+                <div class="auto-btn4"></div>
+
+              </div>
+
+            </div>
+
+            <div class="manual-navigation">
+              <label for="radio1" class="manual-btn"></label>
+              <label for="radio2" class="manual-btn"></label>
+              <label for="radio3" class="manual-btn"></label>
+              <label for="radio4" class="manual-btn"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--        Toast Error -->
+  <div id="toast" class="hidden">
+    <span id="toast-message"></span>
+  </div>
+  </div>
+  <script>
+
+    function submitForm() {
+      document.getElementById("loading__container").style.display = "block";
+      return true;
+    }
+
+    function previewMedia(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function () {
+        if (file.type.includes('image')) {
+          document.getElementById('preview-image').src = reader.result;
+          document.getElementById('preview-image').style.display = 'block';
+          document.getElementById('preview-video').style.display = 'none';
+        } else if (file.type.includes('video')) {
+          document.getElementById('preview-video').src = reader.result;
+          document.getElementById('preview-video').style.display = 'block';
+          document.getElementById('preview-image').style.display = 'none';
+        }
+      }
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+</body>
+
+</html>

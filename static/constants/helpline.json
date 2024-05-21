@@ -1,0 +1,81 @@
+[{
+  "country": "India",
+  "rescue_mission": {
+    "national": "112",
+    "local": {
+      "Andhra Pradesh": "0866 2410978",
+      "Arunachal Pradesh": "9436055743",
+      "Assam": "6913347770",
+      "Bihar": "104",
+      "Chhattisgarh": "104",
+      "Goa": "104",
+      "Gujarat": "104",
+      "Haryana": "8558893911",
+      "Himachal Pradesh": "104",
+      "Jharkhand": "104",
+      "Karnataka": "104",
+      "Kerala": "0471 2552056",
+      "Madhya Pradesh": "104",
+      "Maharashtra": "020 26127394",
+      "Manipur": "3852411668",
+      "Meghalaya": "108",
+      "Mizoram": "102",
+      "Nagaland": "7005539653",
+      "Odisha": "9439994859",
+      "Punjab": "104",
+      "Rajasthan": "0141 2225624",
+      "Sikkim": "104",
+      "Tamil Nadu": "044 29510500",
+      "Telangana": "104",
+      "Tripura": "0381 2315879",
+      "Uttar Pradesh": "18001805145",
+      "Uttarakhand": "104",
+      "West Bengal": "033 23412600"
+    }
+  }
+},
+    {
+      "country": "United States",
+      "rescue_mission": {
+        "national": "911",
+        "local": {
+          "New York": "212-555-1212",
+          "Los Angeles": "213-555-1212",
+          "Chicago": "312-555-1212"
+        }
+      }
+    },
+    {
+      "country": "United Kingdom",
+      "rescue_mission": {
+        "national": "999",
+        "local": {
+          "London": "020 1234 5678",
+          "Manchester": "0161 123 4567",
+          "Birmingham": "0121 123 4567"
+        }
+      }
+    },
+    {
+      "country": "Canada",
+      "rescue_mission": {
+        "national": "911",
+        "local": {
+          "Toronto": "416-555-1212",
+          "Vancouver": "604-555-1212",
+          "Montreal": "514-555-1212"
+        }
+      }
+    },
+    {
+      "country": "Australia",
+      "rescue_mission": {
+        "national": "000",
+        "local": {
+          "Sydney": "02 1234 5678",
+          "Melbourne": "03 1234 5678",
+          "Brisbane": "07 1234 5678"
+        }
+      }
+    }
+]

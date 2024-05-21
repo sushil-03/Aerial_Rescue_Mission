@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="heading">
+      <span class="logo">A<span class="small">IR</span> W<span class="small">ATCH</span></span>
+    </div>
+    <div class="links">
+
+      <button class="button-85" role="button" onclick="handle()">Live</button>
+
+      <div class="selectContainer">
+        <select id="countrySelect" onchange="updateLocalNumbers()">
+          <option value="" disabled selected>Select Country</option>
+        </select>
+
+        <select id="localNumbersSelect">
+          <option value="" disabled selected>Select City</option>
+        </select>
+      </div>
+      <span class="link">About us</span>
+
+      <button class="btn " id="helpline">Call helpline</button>
+    </div>
+  </div>
+</body>
+<script>
+  var jsonData = {{ json_data | tojson }};
+  function populateCountryOptions() {
+    var countrySelect = document.getElementById("countrySelect");
+    jsonData.forEach(function (item) {
+      var option = document.createElement("option");
+      option.text = item.country;
+      option.value = item.country;
+      countrySelect.add(option);
+    });
+  }
+  function updateLocalNumbers() {
+    var countrySelect = document.getElementById("countrySelect");
+    var selectedCountry = countrySelect.value;
+    var localNumbersSelect = document.getElementById("localNumbersSelect");
+    localNumbersSelect.innerHTML = "";
+    var countryObj = jsonData.find(function (item) {
+      return item.country === selectedCountry;
+    });
+    const cities = countryObj.rescue_mission.local
+
+    for (var city in cities) {
+      var option = document.createElement("option");
+      option.text = city;
+      option.value = cities[city]
+      localNumbersSelect.add(option);
+    }
+  }
+  function showMessage(type, message) {
+    var toast = document.getElementById('toast');
+    var toastMessage = document.getElementById('toast-message');
+    toastMessage.textContent = message;
+    toast.classList.remove('hidden');
+
+    if (type === 'error') {
+      toast.classList.add('error');
+    } else if (type === 'success') {
+      toast.classList.add('success');
+    }
+
+    setTimeout(function () {
+      toast.classList.add('hidden');
+      toast.classList.remove('error', 'success');
+    }, 3000);
+  }
+
+  function handleHelpline() {
+    if (localNumbersSelect.value === "") {
+      showMessage("error", "Please select your area");
+      return;
+    }
+    showMessage("success", "Connected");
+    window.open(`tel:${localNumbersSelect.value}`)
+  }
+  populateCountryOptions();
+  document.getElementById('helpline').addEventListener('click', handleHelpline, true);
+  const handle = () => {
+    fetch('/detect_objects', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+  }
+</script>
+
+</html>

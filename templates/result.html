@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css')}}">
+
+</head >
+<body>
+    <div class="result_container">
+        <div>
+            <div class="heading_container">
+
+                <p class="heading">Result</p>
+                <button class="heading home_link" onclick="goBack()">
+                  Go Home
+                </button>
+            </div>
+  <div class="main__result">
+            <div class="result__image_container">
+                <img src="{{ result_image_path }}" class="result_image" alt="Result Image">
+            </div>
+            <div class="result_content">
+                <div>
+                      <span class="heading stats_heading">File Information: </span>
+
+                    <ol>
+                        <li id="file__name" class="stat"></li>
+                    </ol>
+
+                    <span class="heading stats_heading">Stats: </span>
+                  {% for key, value in result_speed.items() %}
+                  <li class="stat">{{ key }}: {{ '%.3f' % value }}s</li>
+                   {% endfor %}
+                </div>
+               <div>
+
+
+               </div>
+                <div>
+                      <span class="heading stats_heading">Classes: </span>
+
+                    <ol>
+                        <li class="stat">Fire</li>
+                        <li class="stat">Human</li>
+                        <li class="stat">Vehicle</li>
+                    </ol>
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+
+          </div>
+
+ <script>
+
+        function goBack() {
+            window.history.back();
+        }
+        // Function to extract text after the fourth slash
+        function extractFileName(filePath) {
+            var parts = filePath.split('/');
+            var fileName = parts.slice(4).join('/');
+            return fileName;
+        }
+
+        var filePath = "{{ result_image_path }}"; // Replace with the file path variable passed from Flask
+        var fileName = extractFileName(filePath);
+
+        // Output the extracted file name
+         window.onload = function() {
+            document.getElementById('file__name').innerText = fileName;
+        };
+    </script>
+</body>
+</html>
