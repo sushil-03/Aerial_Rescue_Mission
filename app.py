@@ -1,4 +1,3 @@
-import argparse
 import json
 import cv2
 from flask import Flask, render_template, redirect, send_file, url_for, request, jsonify, Response
@@ -113,7 +112,4 @@ def detectObject():
     # results = model.predict(source=0, show=True,stream=True)
     return "hey"
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Aerial Object Detection")
-    parser.add_argument("--port", default=5000, type=int, help="port number")
-    args = parser.parse_args()
+
