@@ -8,7 +8,7 @@ import supervision as sv
 
 from ultralytics import YOLO
 
-model = YOLO('model/best-v2.pt')
+model = YOLO('model/best.pt')
 
 # model = YOLO('runs/detect/train/weights/best.pt')
 app = Flask(__name__)
@@ -18,8 +18,8 @@ app = Flask(__name__)
 def hello_word():
     with open('static/constants/helpline.json') as f:
         data = json.load(f)
+    return render_template('index.html', json_data= data)
     # return render_template('result.html')
-    return render_template('index.html', json_data=data)
 
 
 @app.route('/', methods=['POST'])
@@ -84,6 +84,7 @@ def upload_data(result_image_path=None, speed=None):
 
 @app.route("/detect_objects", methods=['GET'])
 def detectObject():
+    print("Yeah")
     cap = cv2.VideoCapture(0)
     box_annotator= sv.BoxAnnotator(
         thickness=2,
@@ -92,8 +93,11 @@ def detectObject():
     )
     while True:
         _,frame = cap.read()
-        
+        print('frame check',frame)
+
         result = model(frame)[0]
+        print('result check',result)
+
         detection= sv.Detections.from_ultralytics(result)
         
         frame= box_annotator.annotate(scene=frame,detections=detection)
@@ -104,8 +108,8 @@ def detectObject():
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    # cap.release()
-    # cv2.destroyAllWindows()
+    cap.release()
+    cv2.destroyAllWindows()
     # results = model.predict(source=0, show=True,stream=True)
     return "hey"
 

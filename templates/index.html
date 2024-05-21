@@ -19,83 +19,87 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="overlay"></div>
-    <div id="loading__container">
-      <div class="loader" id="loading-animation"> </div>
-    </div>
-    <div class="content">
-      {% include 'navbar.html' %}
-      <div class="main__container">
-        <div class="left_side">
-          <form class="form-signin" method="post" enctype=multipart/form-data name="form"
-            onsubmit="return submitForm()">
-            <span class="heading">High above, we search to save lives below.
-              <br>Join us in our mission of hope</span>
-            <div class="media_input_box">
-              <input type="file" name="file" class="form-control-file  " id="inputfile" onchange="previewMedia(event)">
-              <div class="upload_box">
-                <i class="fa fa-upload fa-2x " aria-hidden="true"></i>
-              </div>
-              <img id="preview-image" src="#" alt="Preview Image" style="display: none;">
-              <video id="preview-video" class="preview-media" controls muted autoplay loop
-                style="display:none;"></video>
+  <div>
+    {% include 'navbar.html' %}
+    <div class="container">
 
-            </div>
-            <p class="small_text upload-text ">Upload image or video</p>
-            <br />
-            <button class="btn submitbtn" type="submit">Upload</button>
-          </form>
-        </div>
-
-        <div class="right__container">
-          <div class="slider">
-
-            <div class="slides">
-              <!--Radio Buttons-->
-              <input type="radio" name="radio-btn" id="radio1">
-              <input type="radio" name="radio-btn" id="radio2">
-              <input type="radio" name="radio-btn" id="radio3">
-              <input type="radio" name="radio-btn" id="radio4">
-              <!--Fim Radio Buttons-->
-
-              <div class="slide first">
-                <img src="../static/public/image2.jpg" alt="Image 1" class="carousel_image">
-              </div>
-              <div class="slide">
-
-                <video alt="video" autoplay controls width="320" height="240">
-                  <source src="../static/public/test.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="slide">
-                <img src="../static/public/image3.jpg" alt="Image 1" class="carousel_image">
-              </div>
-              <div class="slide">
-                <img src="../static/public/image4.jpg" alt="Image 1" class="carousel_image">
-              </div>
-              <div class="side">
-                <video alt="video" autoplay controls width="320" height="240">
-                  <source src="../static/public/test.mp4" type="video/mp4">
-                </video>
-              </div>
-              <!--Fim Slides em imagens-->
-
-              <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-                <div class="auto-btn4"></div>
+      <div class="overlay"></div>
+      <div id="loading__container">
+        <div class="loader" id="loading-animation"> </div>
+      </div>
+      <div class="content">
+        <div class="main__container">
+          <div class="left_side">
+            <form class="form-signin" method="post" enctype=multipart/form-data name="form"
+              onsubmit="return submitForm()">
+              <span class="heading">High above, we search to save lives below.
+                <br>Join us in our mission of hope</span>
+              <div class="media_input_box">
+                <input type="file" name="file" class="form-control-file  " id="inputfile"
+                  onchange="previewMedia(event)">
+                <div class="upload_box">
+                  <i class="fa fa-upload fa-2x " aria-hidden="true"></i>
+                </div>
+                <img id="preview-image" src="#" alt="Preview Image" style="display: none;">
+                <video id="preview-video" class="preview-media" controls muted autoplay loop
+                  style="display:none;"></video>
 
               </div>
+              <p class="small_text upload-text ">Upload image or video</p>
+              <br />
+              <button class="btn submitbtn" type="submit">Upload</button>
+            </form>
+          </div>
 
-            </div>
+          <div class="right__container">
+            <div class="slider">
 
-            <div class="manual-navigation">
-              <label for="radio1" class="manual-btn"></label>
-              <label for="radio2" class="manual-btn"></label>
-              <label for="radio3" class="manual-btn"></label>
-              <label for="radio4" class="manual-btn"></label>
+              <div class="slides">
+                <!--Radio Buttons-->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <!--Fim Radio Buttons-->
+
+                <div class="slide first">
+                  <img src="../static/public/image2.jpg" alt="Image 1" class="carousel_image">
+                </div>
+                <div class="slide">
+
+                  <video alt="video" autoplay controls width="320" height="240">
+                    <source src="../static/public/test.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="slide">
+                  <img src="../static/public/image3.jpg" alt="Image 1" class="carousel_image">
+                </div>
+                <div class="slide">
+                  <img src="../static/public/image4.jpg" alt="Image 1" class="carousel_image">
+                </div>
+                <div class="side">
+                  <video alt="video" autoplay controls width="320" height="240">
+                    <source src="../static/public/test.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <!--Fim Slides em imagens-->
+
+                <div class="navigation-auto">
+                  <div class="auto-btn1"></div>
+                  <div class="auto-btn2"></div>
+                  <div class="auto-btn3"></div>
+                  <div class="auto-btn4"></div>
+
+                </div>
+
+              </div>
+
+              <div class="manual-navigation">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+              </div>
             </div>
           </div>
         </div>
@@ -103,13 +107,13 @@
     </div>
   </div>
 
+
   <!--        Toast Error -->
   <div id="toast" class="hidden">
     <span id="toast-message"></span>
   </div>
   </div>
-  <script>
-
+  <script type="text/javascript">
     function submitForm() {
       document.getElementById("loading__container").style.display = "block";
       return true;
