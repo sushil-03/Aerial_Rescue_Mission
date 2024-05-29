@@ -9,8 +9,8 @@
 .container {
   position: relative;
   padding: 0px 0px;
-  overflow:hidden;
-  
+  overflow: hidden;
+
   font-family: "Lato", sans-serif;
   background-image: url("../public/image5.jpg");
   /* background-image: url("../public/image6.jpg"); */
@@ -47,7 +47,7 @@
   border-radius: 10px;
 }
 .navbar {
-  width:100%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -121,7 +121,8 @@
 .main__container {
   /* height: 450px; */
   min-height: 100vh;
-  overflow:hidden
+  overflow: hidden;
+  width: 100%;
   width: 90%;
   display: flex;
   justify-content: space-between;
@@ -132,7 +133,7 @@
 
 @media (min-width: 1024px) {
   .main__container {
-    margin-top:200px;
+    margin-top: 200px;
     flex-direction: row;
   }
   .container {
@@ -165,20 +166,20 @@
     width: 500px !important;
   }
   .left_side {
-    width: 50% !important; 
-    
+    width: 50% !important;
   }
   .heading {
     font-size: 2em !important;
   }
   .form-signin {
-    align-items:start !important;
+    align-items: start !important;
   }
 }
 
 .left_side {
-  width: 95%;
-  height:90%; 
+  margin-top: 40px;
+  width: 100%;
+  height: 90%;
 }
 .heading {
   font-family: "PT Sans", sans-serif;
@@ -190,7 +191,7 @@
   flex-direction: column;
   gap: 20px;
   height: 100%;
-  align-items:center;
+  align-items: center;
 
   justify-content: center;
 }
